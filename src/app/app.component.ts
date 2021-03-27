@@ -78,7 +78,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   playAndStopMusic() {
-    if (this.playMusic === true) {
+    if (this.playMusic) {
       this.audio.src = "../assets/Tetris.mp3";
       this.audio.load();
       this.audio.play();
