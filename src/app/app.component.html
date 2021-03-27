@@ -1,0 +1,37 @@
+<div class="game">
+  <div class="game_player">
+    <div class="game_player__road">
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-1"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-2"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-1"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-2"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-1"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-2"></div>
+    </div>
+    <div>
+      <canvas #canvasEl></canvas>
+    </div>
+    <div class="game_player__road">
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-1"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-2"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-1"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-2"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-1"></div>
+      <div [style.animation-duration]="speedRow+'s'" class="box bounce-2"></div>
+  </div>
+  <div class="game_board">
+    <span class="music" (click)="playAndStopMusic()">&#9834;</span>
+    <ul class="game_board__col">
+      <li class="game_board__row">
+        <span>Score: {{score}}</span>
+      </li>
+      <li class="game_board__row">
+        <span>Hi-Score: {{hi_score}}</span>
+      </li>
+      <li class="game_board__row">
+        <span>Speed: {{speed}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+

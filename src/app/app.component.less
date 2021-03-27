@@ -1,0 +1,106 @@
+canvas {
+  border: 2px solid rgba(0,0,0,0.12);
+  transition: 300ms;
+  //border-right: 10px dashed #000;
+  //border-left: 10px dashed #000;
+}
+
+.game {
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  margin: 0px auto;
+  border: 2px solid #C0C0C0;
+  border-radius: 4px;
+  margin-top: 20vh;
+  position: relative;
+
+  &_board {
+    margin: auto;
+    overflow: hidden;
+
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      width: 250px;
+      margin: auto;
+    }
+
+    &__row {
+      padding: 10px;
+    }
+  }
+
+}
+
+.music {
+  cursor: pointer;
+  font-size: 32px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.game_player {
+  display: flex;
+  &_road {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+.box {
+  align-self: flex-end;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+  background-color: #000;
+  height: 45px;
+  transform-origin: bottom;
+  width: 20px;
+  margin: 20px 0;
+}
+
+.bounce-1 {
+  animation-name: bounce-1;
+  animation-timing-function: linear;
+}
+
+.bounce-2 {
+  animation-name: bounce-2;
+  animation-timing-function: linear;
+}
+
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(-12px);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+
+}
+
+@keyframes bounce-2 {
+  0% {
+    transform: translateY(-12px);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(15px);
+  }
+
+}
