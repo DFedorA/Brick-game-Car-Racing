@@ -1,28 +1,21 @@
 export class fallingCar {
   private y: any;
   private x: any;
-  public speed = 3;
+  private flag: any;
+  public speed = 1;
 
-  constructor(x, y, private ctx: CanvasRenderingContext2D) {
+  constructor(x, y, private ctx: CanvasRenderingContext2D, flag) {
     this.x = x;
     this.y = y;
+    this.flag = flag;
   }
+
   draw(nCol, nRow, boxSize) {
-    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    for (let i = 0; i < nCol * boxSize; i += boxSize) {
-      for (let j = 0; j < nRow * boxSize; j += boxSize) {
-        this.ctx.beginPath();
-        this.ctx.strokeStyle = "#C0C0C0";
-        this.ctx.lineWidth = 3;
-        this.ctx.rect(i, j, boxSize, boxSize);
-        this.ctx.fillStyle = "#C0C0C0";
-        this.ctx.fillRect(i + 5, j + 5, boxSize / 2, boxSize / 2);
-        this.ctx.stroke();
-        this.ctx.closePath();
-      }
+    if (this.flag === true) {
+      this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     }
     this.ctx.beginPath();
-    this.ctx.lineWidth = 5;
+    this.ctx.lineWidth = 4;
     this.ctx.strokeStyle = "black";
     this.ctx.rect(this.x, this.y + boxSize, 1 * boxSize, boxSize); // back
     this.ctx.rect(this.x + boxSize * 2, this.y + boxSize, 1 * boxSize, boxSize); // back
@@ -30,7 +23,6 @@ export class fallingCar {
     this.ctx.rect(this.x, this.y + 3 * boxSize, 3 * boxSize, boxSize); // front
     this.ctx.stroke();
     this.ctx.closePath();
-
 
     this.fillIntoBox(boxSize, -15, 5);
     this.fillIntoBox(boxSize, 25, 5);
@@ -61,7 +53,7 @@ export class fallingCar {
 
   update(nCol, nRow, boxSize, gameOver) {
     if (!gameOver) {
-      this.y += this.speed;
+      this.y += boxSize * this.speed;
     }
     if (this.y > this.ctx.canvas.height + boxSize) {
       if (Math.random() < 0.33) {
@@ -73,6 +65,7 @@ export class fallingCar {
       }
       this.y = 0;
     }
-    this.draw(nCol, nRow, boxSize)
+    this.draw(nCol, nRow, boxSize);
+
   }
 }

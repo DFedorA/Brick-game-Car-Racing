@@ -6,7 +6,8 @@
       </div>
     </div>
     <div>
-      <canvas #canvasEl></canvas>
+      <canvas #canvasBack></canvas>
+      <canvas class="canvasEl" #canvasEl></canvas>
     </div>
     <div class="game_player__road">
       <div [style.animation-duration]="speedRow+'s'" *ngFor="let n of numSequence(19)" class="box move">

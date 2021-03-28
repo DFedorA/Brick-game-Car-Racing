@@ -3,16 +3,17 @@ export class mainCar {
   private x: any;
   isLeft: boolean = false;
   isRight: boolean = false;
-  gameOverBool: boolean  = false;
+  gameOverBool: boolean = false;
 
   constructor(x, y, private ctx: CanvasRenderingContext2D) {
     this.x = x;
     this.y = y;
 
   }
+
   draw(nCol, nRow, boxSize) {
     this.ctx.beginPath();
-    this.ctx.lineWidth = 5;
+    this.ctx.lineWidth = 4;
     this.ctx.strokeStyle = "black";
     this.ctx.rect(this.x, this.y + 17 * boxSize, 3 * boxSize, boxSize); // front
     this.ctx.rect(this.x + boxSize, this.y + 16 * boxSize, boxSize, 3 * boxSize); //middle
@@ -44,7 +45,7 @@ export class mainCar {
   }
 
 
-  update(nCol, nRow, boxSize, fCar) {
+  update(nCol, nRow, boxSize, fCar, fCar2) {
     if (this.isLeft && this.x > 0 && !this.gameOverBool) {
       this.x -= 3 * boxSize;
       this.isLeft = false;
@@ -53,10 +54,11 @@ export class mainCar {
       this.x += 3 * boxSize;
       this.isRight = false;
     }
-    if (this.x == fCar.x && fCar.y >= 11 * boxSize && fCar.y <= 380) {
+    if ((this.x == fCar.x && fCar.y >= 11 * boxSize && fCar.y <= 380) || (this.x == fCar2.x && fCar2.y >= 11 * boxSize && fCar2.y <= 380)) {
 
       this.gameOverBool = true;
     }
+
     this.draw(nCol, nRow, boxSize);
 
   }

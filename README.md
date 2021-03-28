@@ -1,1 +1,1 @@
-![Screenshot](img_car_racing.PNG)
+![Screenshot](brick_game.PNG)
