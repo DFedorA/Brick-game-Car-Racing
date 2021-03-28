@@ -1,1 +1,1 @@
-![Screenshot](img_car.PNG)
+![Screenshot](img_car_racing.PNG)
