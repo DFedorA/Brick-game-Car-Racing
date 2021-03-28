@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   audio = new Audio();
   playMusic: boolean = true;
   hi_score = +localStorage.getItem('hi-score');
-  speedRow: number = 0.6;
+  speedRow: number = 0.3;
 
   ngOnInit(): void {
     this.ctx = this.canvasEl.nativeElement.getContext('2d');
@@ -44,7 +44,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     let speedCar = setInterval(() => {
       this.speed++;
       fCar.speedCar = this.speed;
-      this.speedRow = this.speedRow - 0.1
+      if (this.speedRow > 0.1) {
+        this.speedRow = this.speedRow - 0.1;
+      }
     }, 8000);
 
     let gameCar = setInterval(() => {
@@ -59,7 +61,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           localStorage.setItem('hi-score', String(this.score))
           this.hi_score = +localStorage.getItem('hi-score')
         }
-        this.playMusic = true;
+        this.speedRow = 0;
         clearInterval(gameCar);
         clearInterval(speedCar);
         alert("Game over");
@@ -76,7 +78,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
 
   }
-
+  numSequence(n: number): Array<number> {
+    return Array(n);
+  }
   playAndStopMusic() {
     if (this.playMusic) {
       this.audio.src = "../assets/Tetris.mp3";
@@ -87,8 +91,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.playMusic = true;
       this.audio.pause();
     }
-
   }
-
 }
 
