@@ -12,7 +12,9 @@ canvas {
   border: 2px solid #C0C0C0;
   border-radius: 4px;
   position: relative;
+  max-height: 404px;
 
+overflow: hidden;
   &_board {
     margin: auto;
     overflow: hidden;
@@ -62,6 +64,7 @@ canvas {
   transform-origin: bottom;
   width: 15px;
 
+
 }
 
 .box:nth-child(4n) {
@@ -89,10 +92,13 @@ canvas {
 
 @keyframes move {
   0% {
-    transform: translateY(0);
+    transform: translateY(-10px);
   }
-  50% {
-    transform: translateY(3px);
+  25% {
+    transform: translateY(-5px);
+  }
+ 50% {
+    transform: translateY(0px);
   }
   100% {
     transform: translateY(5px);

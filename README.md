@@ -1,1 +1,1 @@
-![Screenshot](brick_game.PNG)
+![Screenshot](brick_game_2.PNG)
